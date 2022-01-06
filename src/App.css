@@ -19,16 +19,40 @@ body{
   padding:20px;
 }
 .list{
+  position: relative;
   text-align: left;
   padding:0 20px ;
 }
 .list h3{
   cursor: pointer;
+  font-size: calc(2px + 2vmin);
+}
+.list .good{
+  position: absolute;
+  top:50%;
+  right:20px;
+  cursor: pointer;
+  font-size: 24px;
 }
 .modal{
-  margin-top:20px;
-  padding:20px;
+  position: absolute;
+  /* width: 100vw;
+  height: 100vh; */
+  top:500px;
+  left:500px;
+  background: rgba(0, 0, 0, 0.329);
+  text-align: center;
+  
+}
+.modal .contents{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height:500px;
   background: #eee;
+  padding:20px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -39,12 +63,11 @@ body{
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(2px + 1vmin);
   color: white;
 }
 
