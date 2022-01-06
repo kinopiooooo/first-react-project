@@ -34,6 +34,9 @@ function App() {
   ])
   let [viwmodal, viwmodal_e] = useState(false)
   let [modalTarget, modalTarget_e] = useState(0)
+
+  let[inputval, inputval_e] = useState(['','','']);
+
   function goodplus(i){
     var a = [...b_good]
     a[i] = a[i]+1
@@ -46,6 +49,12 @@ function App() {
       modalTarget_e(i)
     }
   }
+  // function saveData(){
+  //   var capyarry = [...b_title];
+  //   capyarry.push(inputval);
+  //   b_title_e(capyarry)
+    
+  // }
   return (
     <div className="App">
       <div className='App-header'>
@@ -62,6 +71,46 @@ function App() {
         </div>
         )
       }) }
+
+      <div className='write'>
+        <div>
+          <span>타이틀</span>
+          <input onChange={(e)=>{
+            var copyarray = [...inputval];
+            copyarray[0] = e.target.value;
+            inputval_e(copyarray)
+          }}/>
+        </div>
+        <div>
+          <span>발행일</span>
+          <input onChange={(e)=>{
+            var copyarray = [...inputval];
+            copyarray[1] = e.target.value;
+            inputval_e(copyarray)
+          }}/>
+        </div>
+        <div>
+          <span>언론명</span>
+          <input onChange={(e)=>{
+            var copyarray = [...inputval];
+            copyarray[2] = e.target.value;
+            inputval_e(copyarray)
+          }}/>
+        </div>
+        <button onClick={()=>{
+          var copyarray = [...b_title];
+          copyarray.unshift(inputval[0]);
+          b_title_e(copyarray)
+          copyarray = [...b_date];
+          copyarray.unshift(inputval[1]);
+          b_date_e(copyarray)
+          copyarray = [...b_press];
+          copyarray.unshift(inputval[2]);
+          b_press_e(copyarray)
+        }}>저장</button>
+      </div>
+      
+      
       {
         viwmodal === true
         ? <Modal title={b_title} date={b_date} press={b_press} good={b_good} target={modalTarget}/>
@@ -71,13 +120,13 @@ function App() {
   );
   
 }
-function Modal(prop){
+function Modal(props){
   return(
     <div className="modal">
       <div className='contents'>
-        <h3>{prop.title[prop.target]}</h3>
-        <p>{prop.date[prop.target]}</p>
-        <p>{prop.press[prop.target]}</p>
+        <h3>{props.title[props.target]}</h3>
+        <p>{props.date[props.target]}</p>
+        <p>{props.press[props.target]}</p>
         {/* <button onClick={()=>{viwmodal_e(false)}}>닫기</button> */}
         {/* <div className='good' onClick={()=>{goodplus(target)}}><span>👍</span> { b_good[target] }</div> */}
       </div>

@@ -34,6 +34,21 @@ body{
   cursor: pointer;
   font-size: 24px;
 }
+.write{
+  margin: 0 auto;
+  width: 300px;
+}
+.write span{
+  display: block;
+  font-size: 13px;
+  text-align: left;
+}
+.write input{
+  width: 100%;
+  border: 1px solid #dfdfdf;
+  padding:5px;
+  margin-bottom: 10px;
+}
 .modal{
   position: absolute;
   /* width: 100vw;
